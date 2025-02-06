@@ -7,8 +7,6 @@ import { RxAvatar } from "react-icons/rx";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useRouter } from '@tanstack/react-router'
-import Home1 from '../assets/Home1.png'
-import Home2 from '../assets/Home2.png'
 export const Route = createFileRoute('/')({
   component: RouteComponent,
 })
@@ -71,6 +69,16 @@ function RouteComponent() {
           <li></li>
           <li></li>
           <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+         
         </ul>
 
 
@@ -127,40 +135,49 @@ function RouteComponent() {
 
 
           <footer className='absolute bottom-0 w-full py-4 flex items-center justify-center font-semibold text-2xl text-gray-900'>
-            <div className='flex cursor-pointer'>
-              <ul className='sm:flex sm:gap-5'>
+                <div className="flex cursor-pointer">
+                    <ul className="sm:flex sm:gap-5">
+                        {/* Name Section (Non-Link) */}
+                        <li className="flex items-center gap-2 group hover:scale-110 duration-300">
+                            <RxAvatar className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                            <h1 className="text-lg text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                Hammad Akbar Khan
+                            </h1>
+                        </li>
+
+                        {/* LinkedIn Link */}
+                        <li className="group hover:scale-110 duration-300">
+                            <a
+                                href="https://www.linkedin.com/in/hammad-akbar-khan-107167283"
+                                target="_blank"
+                                className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-all duration-300"
+                            >
+                                <FaLinkedin className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                                <h1 className="text-lg text-white underline decoration-transparent group-hover:decoration-yellow-300 transition-all duration-300 group-hover:text-yellow-300">
+                                    Hammad Akbar Khan
+                                </h1>
+                            </a>
+                        </li>
+
+                        {/* GitHub Link */}
+                        <li className="group hover:scale-110 duration-300">
+                            <a
+                                href="https://github.com/HammadAkbar1623"
+                                target="_blank"
+                                className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-all duration-300"
+                            >
+                                <FaGithub className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                                <h1 className="text-lg text-white underline decoration-transparent group-hover:decoration-yellow-300 transition-all duration-300 group-hover:text-yellow-300">
+                                    HammadAkbar1623
+                                </h1>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
 
-                <li className='flex items-center gap-2 group hover:scale-105 duration-300'>
-                  <RxAvatar className='text-white inline-flex' />
-                  <h1 className='text-lg text-white'>Hammad Akbar Khan</h1>
-                </li>
 
-
-                <li className='group hover:scale-105 duration-300'>
-                  <a href="https://www.linkedin.com/in/hammad-akbar-khan-107167283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target='_blank' className='flex items-center gap-2'>
-                    <FaLinkedin className='text-white inline-flex' />
-                    <h1 className='text-lg text-white underline'>Hammad Akbar Khan</h1>
-                  </a>
-
-                </li>
-
-
-
-                <li className=' group hover:scale-105 duration-300' >
-                  <a href="https://github.com/HammadAkbar1623" target="_blank" className='flex items-center gap-2'>
-                    <FaGithub className='text-white inline-flex' />
-                    <h1 className='text-lg text-white underline'>HammadAkbar1623</h1>
-                  </a>
-
-
-                </li>
-              </ul>
-
-            </div>
-
-
-          </footer>
+            </footer>
 
 
         </div>

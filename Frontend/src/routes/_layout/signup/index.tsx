@@ -8,12 +8,15 @@ import { RxAvatar } from "react-icons/rx";
 import { FaLinkedin, FaGithub, FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-router'
+import { useAuth } from '../../AuthContext'
 
 export const Route = createFileRoute('/_layout/signup/')({
     component: RouteComponent,
 })
 
 function RouteComponent() {
+    const { login } = useAuth()
 
     const [showPassword, setPassword] = useState(false)
 
@@ -43,9 +46,13 @@ function RouteComponent() {
         resolver: zodResolver(signupSchema),
     })
 
+    const router = useRouter();
     function onSubmit(data: any) {
-        console.log("Submitted With Resolver", data);
-    }
+    login(data.email);
+    router.navigate({ to: "/home" });
+  }
+
+    
 
     return (
         <>
