@@ -24,10 +24,6 @@ const LayoutRoute = LayoutImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-
-
-
-
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
@@ -189,8 +185,6 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthContextRoute: typeof AuthContextRoute
-  ProtectedRouteRoute: typeof ProtectedRouteRoute
   LayoutRoute: typeof LayoutRouteWithChildren
 }
 
