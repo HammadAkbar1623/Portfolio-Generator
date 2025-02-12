@@ -49,6 +49,9 @@ function RouteComponent() {
   return (
     <>
 
+    <div className='w-full h-full customBlue'>
+
+    
 
       <div className="area" data-aos="fade-in" data-aos-delay="600">
 
@@ -58,29 +61,7 @@ function RouteComponent() {
             Developed By <p className="font-bold underline text-yellow-300">Hammad</p>
           </span>
         </div>
-        <ul className="circles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-         
-        </ul>
-
+        
 
         <div className='flex flex-col pt-32 items-center h-screen gap-2'>
           
@@ -181,6 +162,8 @@ function RouteComponent() {
 
 
         </div>
+      </div>
+
       </div>
 
     </>

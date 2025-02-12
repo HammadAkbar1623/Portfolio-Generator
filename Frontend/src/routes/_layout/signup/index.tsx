@@ -9,14 +9,11 @@ import { FaLinkedin, FaGithub, FaEye, FaEyeSlash, FaUser } from "react-icons/fa"
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useRouter } from '@tanstack/react-router'
-import { useAuth } from '../../AuthContext'
-
 export const Route = createFileRoute('/_layout/signup/')({
     component: RouteComponent,
 })
 
 function RouteComponent() {
-    const { login } = useAuth()
 
     const [showPassword, setPassword] = useState(false)
 
@@ -47,8 +44,7 @@ function RouteComponent() {
     })
 
     const router = useRouter();
-    function onSubmit(data: any) {
-    login(data.email);
+    function onSubmit() {
     router.navigate({ to: "/home" });
   }
 
@@ -56,6 +52,7 @@ function RouteComponent() {
 
     return (
         <>
+        <div className='min-h-screen pt-20 flex flex-col customBlue'>
             <div className="flex items-center justify-center h-screen" data-aos="zoom-in" data-aos-delay="600">
                 <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-lg w-96 border border-white/20">
                     <h2 className="text-2xl font-bold text-white text-center mb-6">Sign Up</h2>
@@ -121,7 +118,7 @@ function RouteComponent() {
                 </div>
             </div>
 
-            <footer className='absolute bottom-0 w-full py-4 flex items-center justify-center font-semibold text-2xl text-gray-900'>
+            <footer className='w-full bottom-0 flex justify-center font-semibold text-2xl text-gray-900'>
                 <div className="flex cursor-pointer">
                     <ul className="sm:flex sm:gap-5">
                         {/* Name Section (Non-Link) */}
@@ -163,8 +160,13 @@ function RouteComponent() {
                 </div>
 
 
-
             </footer>
+
+            </div>
+
+            
+
+            
         </>
     )
 }

@@ -9,8 +9,6 @@ import { useRouter } from '@tanstack/react-router';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../AuthContext';
-
 export const Route = createFileRoute('/_layout/signin/')({
   component: RouteComponent,
 });
@@ -23,11 +21,6 @@ const signinSchema = z.object({
 
 
 function RouteComponent() {
-
-  const { login } = useAuth(); // Get login function
-  
-
-
   const [showPassword, setPassword] = useState(false);
   const router = useRouter();
 
@@ -52,14 +45,16 @@ function RouteComponent() {
     resolver: zodResolver(signinSchema),
 })
 
-function onSubmit(data: any) {
-  login(data.email); // Store user in context
+function onSubmit() {
   router.navigate({ to: "/home" }); // Redirect after login
 }
 
 
   return (
     <>
+    <div className='min-h-screen flex pt-10 flex-col customBlue'>
+
+    
       <div className="flex items-center justify-center h-screen" data-aos="zoom-in" data-aos-delay="600">
         <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-lg w-96 border border-white/20">
           <h2 className="text-2xl font-bold text-white text-center mb-6">Sign In</h2>
@@ -117,7 +112,7 @@ function onSubmit(data: any) {
       </div>
 
 
-      <footer className='absolute bottom-0 w-full py-4 flex items-center justify-center font-semibold text-2xl text-gray-900'>
+      <footer className='relative w-full py-4 flex items-center justify-center font-semibold text-2xl'>
                 <div className="flex cursor-pointer">
                     <ul className="sm:flex sm:gap-5">
                         {/* Name Section (Non-Link) */}
@@ -161,6 +156,8 @@ function onSubmit(data: any) {
 
 
             </footer>
+
+            </div>
     </>
   )
 }

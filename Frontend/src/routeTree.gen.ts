@@ -59,20 +59,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/AuthContext': {
-      id: '/AuthContext'
-      path: '/AuthContext'
-      fullPath: '/AuthContext'
-      preLoaderRoute: typeof AuthContextImport
-      parentRoute: typeof rootRoute
-    }
-    '/ProtectedRoute': {
-      id: '/ProtectedRoute'
-      path: '/ProtectedRoute'
-      fullPath: '/ProtectedRoute'
-      preLoaderRoute: typeof ProtectedRouteImport
-      parentRoute: typeof rootRoute
-    }
     '/_layout': {
       id: '/_layout'
       path: ''
@@ -123,8 +109,6 @@ const LayoutRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/AuthContext': typeof AuthContextRoute
-  '/ProtectedRoute': typeof ProtectedRouteRoute
   '': typeof LayoutRouteWithChildren
   '/home': typeof LayoutHomeIndexRoute
   '/signin': typeof LayoutSigninIndexRoute
@@ -133,8 +117,6 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/AuthContext': typeof AuthContextRoute
-  '/ProtectedRoute': typeof ProtectedRouteRoute
   '': typeof LayoutRouteWithChildren
   '/home': typeof LayoutHomeIndexRoute
   '/signin': typeof LayoutSigninIndexRoute
@@ -144,8 +126,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/AuthContext': typeof AuthContextRoute
-  '/ProtectedRoute': typeof ProtectedRouteRoute
   '/_layout': typeof LayoutRouteWithChildren
   '/_layout/home/': typeof LayoutHomeIndexRoute
   '/_layout/signin/': typeof LayoutSigninIndexRoute
@@ -154,28 +134,12 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/AuthContext'
-    | '/ProtectedRoute'
-    | ''
-    | '/home'
-    | '/signin'
-    | '/signup'
+  fullPaths: '/' | '' | '/home' | '/signin' | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/AuthContext'
-    | '/ProtectedRoute'
-    | ''
-    | '/home'
-    | '/signin'
-    | '/signup'
+  to: '/' | '' | '/home' | '/signin' | '/signup'
   id:
     | '__root__'
     | '/'
-    | '/AuthContext'
-    | '/ProtectedRoute'
     | '/_layout'
     | '/_layout/home/'
     | '/_layout/signin/'
@@ -204,19 +168,11 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/AuthContext",
-        "/ProtectedRoute",
         "/_layout"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/AuthContext": {
-      "filePath": "AuthContext.tsx"
-    },
-    "/ProtectedRoute": {
-      "filePath": "ProtectedRoute.tsx"
     },
     "/_layout": {
       "filePath": "_layout.tsx",
