@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CiCirclePlus } from "react-icons/ci";
 import { useState } from "react";
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { RxAvatar } from 'react-icons/rx';
 
 export const Route = createFileRoute('/_layout/home/')({
     component: RouteComponent,
@@ -450,6 +452,52 @@ function RouteComponent() {
                     </span>
                 </button>
             </div>
+
+
+             <footer className='relative w-full py-4 flex items-center justify-center font-semibold text-2xl'>
+                            <div className="flex cursor-pointer">
+                                <ul className="sm:flex sm:gap-5">
+                                    {/* Name Section (Non-Link) */}
+                                    <li className="flex items-center gap-2 group hover:scale-110 duration-300">
+                                        <RxAvatar className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                                        <h1 className="text-lg text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                            Hammad Akbar Khan
+                                        </h1>
+                                    </li>
+            
+                                    {/* LinkedIn Link */}
+                                    <li className="group hover:scale-110 duration-300">
+                                        <a
+                                            href="https://www.linkedin.com/in/hammad-akbar-khan-107167283"
+                                            target="_blank"
+                                            className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-all duration-300"
+                                        >
+                                            <FaLinkedin className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                                            <h1 className="text-lg text-white underline decoration-transparent group-hover:decoration-yellow-300 transition-all duration-300 group-hover:text-yellow-300">
+                                                Hammad Akbar Khan
+                                            </h1>
+                                        </a>
+                                    </li>
+            
+                                    {/* GitHub Link */}
+                                    <li className="group hover:scale-110 duration-300">
+                                        <a
+                                            href="https://github.com/HammadAkbar1623"
+                                            target="_blank"
+                                            className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-all duration-300"
+                                        >
+                                            <FaGithub className="text-white group-hover:text-yellow-300 transition-colors duration-300" />
+                                            <h1 className="text-lg text-white underline decoration-transparent group-hover:decoration-yellow-300 transition-all duration-300 group-hover:text-yellow-300">
+                                                HammadAkbar1623
+                                            </h1>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+            
+            
+            
+                        </footer>
 
 
             </div>
