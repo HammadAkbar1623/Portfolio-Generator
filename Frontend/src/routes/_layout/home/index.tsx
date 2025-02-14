@@ -481,7 +481,7 @@ function Home() {
 
                 <div className='flex justify-center items-center mt-6 pb-6'>
                     <button
-                        className="animate-bounce focus:animate-none hover:animate-none inline-flex text-lg shadow-lg shadow-gray-800  bg-amber-500 font-bold mt-3 px-4 py-2 rounded-lg tracking-wide text-white"
+                        className="animate-bounce cursor-pointer focus:animate-none hover:animate-none inline-flex text-lg shadow-lg shadow-gray-800  bg-amber-500 font-bold mt-3 px-4 py-2 rounded-lg tracking-wide text-white"
                         aria-label="Sign up" >
                         <span className="relative flex items-center">
                             Generate Portfolio

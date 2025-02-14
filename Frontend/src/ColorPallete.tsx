@@ -32,7 +32,10 @@ const ColorPallete = () => {
     return (
         <>
             <div className="p-6 bg-gray-800 rounded-2xl shadow-lg max-w-md mx-auto text-white">
-                <h2 className="text-xl font-semibold mb-4">Select a Color Palette</h2>
+            <div className="flex items-center gap-3 mb-5">
+                        <span className="text-2xl text-amber-400 font-bold">7.</span>
+                        <h1 className="text-2xl text-white font-semibold">Select Colors</h1>
+                    </div>
 
                 {/* Palette Buttons */}
                 <div className="grid grid-cols-3 gap-3 mb-4">
@@ -40,7 +43,7 @@ const ColorPallete = () => {
                         <button
                             key={palette.name}
                             onClick={() => setSelectedPalette(palette)}
-                            className="p-3 rounded-lg"
+                            className="p-3 rounded-lg cursor-pointer"
                             style={{
                                 backgroundColor: palette.primary,
                                 color: palette.text,
@@ -75,7 +78,7 @@ const ColorPallete = () => {
                         />
                         <button
                             onClick={applyCustomColors}
-                            className="bg-amber-400 text-black px-3 py-1 rounded-lg"
+                            className="bg-amber-400 text-black px-3 py-1 rounded-lg cursor-pointer "
                         >
                             Apply
                         </button>
