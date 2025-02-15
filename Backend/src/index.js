@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './DB/index.js'
+import portfolioRoutes from './routes/portfolio.js'
 dotenv.config();
 
 const app = express();
@@ -17,7 +18,10 @@ connectDB()
         console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
     })
 })
+
 .catch((err) => {
     console.log("MONGO db connection failed !!! ", err);
 })
 
+// Use Portfolio Routes
+app.use("/api/portfolio", portfolioRoutes);
