@@ -1,9 +1,9 @@
 import express from 'express'
-import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './DB/index.js'
 import portfolioRoutes from './routes/portfolio.js'
+import authRoutes from './routes/auth.js'
 dotenv.config();
 
 const app = express();
@@ -23,5 +23,6 @@ connectDB()
     console.log("MONGO db connection failed !!! ", err);
 })
 
-// Use Portfolio Routes
+// Routes
+app.use("/api/auth", authRoutes);
 app.use("/api/portfolio", portfolioRoutes);
