@@ -1,1 +1,1 @@
-export const dbName = "Portfolio-Generator"
+export const dbName = 'Portfolio-Generator'
