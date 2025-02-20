@@ -31,9 +31,48 @@ const registerUser = async (req, res, next) => {
 
         return res.status(201).json({ message: "User registered successfully", user });
 
-    } catch (error) {
-        next(error); // Pass error to Express error handling middleware
+    } 
+    catch (error) {
+        console.error("Registering error:", error);
+        return res.status(error.statusCode || 500).json({ 
+            message: error.message || "Internal Server Error" 
+        });
     }
 };
 
-export { registerUser };
+// Login User
+const loginUser = async(req, res) => {
+    
+    try {
+        // Get data from the user
+        const { email, password } = req.body;
+        if(! (email || password )){
+            throw new ApiError(400, "Email or Password are required")
+        }
+    
+        // Find user in DB
+        const user = await User.findOne({ email });
+
+        if(!user){
+            throw new ApiError(404, "User not found")
+        }
+    
+        // Check Password
+        const isPasswordValid = await user.isPasswordCorrect(password)
+        if(!isPasswordValid){
+            throw new ApiError(401, "Invalid user credentials");
+        }
+    
+        return res.status(200).json({ message: "User logged in successfully ", user});
+    } 
+    catch (error) {
+        console.error("Login error:", error);
+        return res.status(error.statusCode || 500).json({ 
+            message: error.message || "Internal Server Error" 
+        });
+    }
+}
+
+export { registerUser,
+         loginUser,
+ };
