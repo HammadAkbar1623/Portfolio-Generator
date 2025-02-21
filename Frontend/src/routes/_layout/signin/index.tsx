@@ -9,6 +9,7 @@ import { useRouter } from '@tanstack/react-router';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 export const Route = createFileRoute('/_layout/signin/')({
   component: RouteComponent,
 });
@@ -41,12 +42,19 @@ function RouteComponent() {
     register,
     handleSubmit,
     formState: { errors },
-} = useForm({
+} = useForm<{ email: string; password: string }>({
     resolver: zodResolver(signinSchema),
 })
 
-function onSubmit() {
-  router.navigate({ to: "/home" }); // Redirect after login
+ async function onSubmit( data: { email: string; password: string } ) {
+  try {
+    const response = await axios.post('http://localhost:8000/api/v1/users/signin', data);
+    localStorage.setItem('token', response.data.token); // Store token
+    alert("Login successful!");
+    router.navigate({ to: "/home" }); // Redirect to home page
+} catch (error: any) {
+    alert(error.response?.data?.message || "Login failed");
+}
 }
 
 

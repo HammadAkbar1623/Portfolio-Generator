@@ -9,6 +9,7 @@ import { FaLinkedin, FaGithub, FaEye, FaEyeSlash, FaUser } from "react-icons/fa"
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useRouter } from '@tanstack/react-router'
+import axios from 'axios'
 export const Route = createFileRoute('/_layout/signup/')({
     component: RouteComponent,
 })
@@ -39,13 +40,21 @@ function RouteComponent() {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm({
+    } = useForm<{ name: string; email: string; password: string }>({
         resolver: zodResolver(signupSchema),
     })
 
+    
     const router = useRouter();
-    function onSubmit() {
-    router.navigate({ to: "/home" });
+
+    async function onSubmit( data: { name: string; email: string; password: string } ) {
+        try {
+            const response = await axios.post('http://localhost:8000/api/v1/users/signup', data);
+            alert(response.data.message); // Show success message
+            router.navigate({ to: "/signin" }); // Redirect to login
+        } catch (error: any) {
+            alert(error.response?.data?.message || "Signup failed");
+        }
   }
 
     

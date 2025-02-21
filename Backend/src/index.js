@@ -7,7 +7,7 @@ dotenv.config({
     path: './.env'
 })
 
-app.use(cors());
+
 
 connectDB()
 .then(() => {
