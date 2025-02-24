@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as IndexImport } from './routes/index'
+import { Route as PortfolioIndexImport } from './routes/Portfolio/index'
 import { Route as LayoutSignupIndexImport } from './routes/_layout/signup/index'
 import { Route as LayoutSigninIndexImport } from './routes/_layout/signin/index'
 import { Route as LayoutHomeIndexImport } from './routes/_layout/home/index'
@@ -27,6 +28,12 @@ const LayoutRoute = LayoutImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PortfolioIndexRoute = PortfolioIndexImport.update({
+  id: '/Portfolio/',
+  path: '/Portfolio/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -64,6 +71,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: ''
       preLoaderRoute: typeof LayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/Portfolio/': {
+      id: '/Portfolio/'
+      path: '/Portfolio'
+      fullPath: '/Portfolio'
+      preLoaderRoute: typeof PortfolioIndexImport
       parentRoute: typeof rootRoute
     }
     '/_layout/home/': {
@@ -110,6 +124,7 @@ const LayoutRouteWithChildren =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '': typeof LayoutRouteWithChildren
+  '/Portfolio': typeof PortfolioIndexRoute
   '/home': typeof LayoutHomeIndexRoute
   '/signin': typeof LayoutSigninIndexRoute
   '/signup': typeof LayoutSignupIndexRoute
@@ -118,6 +133,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '': typeof LayoutRouteWithChildren
+  '/Portfolio': typeof PortfolioIndexRoute
   '/home': typeof LayoutHomeIndexRoute
   '/signin': typeof LayoutSigninIndexRoute
   '/signup': typeof LayoutSignupIndexRoute
@@ -127,6 +143,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/_layout': typeof LayoutRouteWithChildren
+  '/Portfolio/': typeof PortfolioIndexRoute
   '/_layout/home/': typeof LayoutHomeIndexRoute
   '/_layout/signin/': typeof LayoutSigninIndexRoute
   '/_layout/signup/': typeof LayoutSignupIndexRoute
@@ -134,13 +151,14 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/home' | '/signin' | '/signup'
+  fullPaths: '/' | '' | '/Portfolio' | '/home' | '/signin' | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/home' | '/signin' | '/signup'
+  to: '/' | '' | '/Portfolio' | '/home' | '/signin' | '/signup'
   id:
     | '__root__'
     | '/'
     | '/_layout'
+    | '/Portfolio/'
     | '/_layout/home/'
     | '/_layout/signin/'
     | '/_layout/signup/'
@@ -150,11 +168,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LayoutRoute: typeof LayoutRouteWithChildren
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LayoutRoute: LayoutRouteWithChildren,
+  PortfolioIndexRoute: PortfolioIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -168,7 +188,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_layout"
+        "/_layout",
+        "/Portfolio/"
       ]
     },
     "/": {
@@ -181,6 +202,9 @@ export const routeTree = rootRoute
         "/_layout/signin/",
         "/_layout/signup/"
       ]
+    },
+    "/Portfolio/": {
+      "filePath": "Portfolio/index.tsx"
     },
     "/_layout/home/": {
       "filePath": "_layout/home/index.tsx",

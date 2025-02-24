@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { RxAvatar } from 'react-icons/rx';
 import ColorPallete from '../../../ColorPallete';
+import { useRouter } from '@tanstack/react-router';
 export const Route = createFileRoute('/_layout/home/')({
     component: Home,
 })
@@ -11,6 +12,10 @@ export const Route = createFileRoute('/_layout/home/')({
 
 
 function Home() {
+    const router = useRouter()
+    const routeToPortfolio = () => {
+        router.navigate({to: '/Portfolio'})
+    }
 
     const [services, setServices] = useState([{ id: 1, name: "", about: "" }]);
     const [skills, setSkills] = useState([{ id: 1, name: "" }]);
@@ -29,6 +34,7 @@ function Home() {
         setProjects([...projects, { id: projects.length + 1, title: "", about: "", link: "" }])
     }
 
+    
 
 
     return (
@@ -42,23 +48,16 @@ function Home() {
                         Portfolio
                     </h1>
                 </div>
-
-
-
-
-
                 {/* Basic Info  */}
-
                 <div className="flex justify-center">
                     <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl shadow-gray-800 w-full max-w-md mx-auto sm:ml-7 mb-5">
                         <div className="flex items-center gap-3">
                             <span className="text-2xl text-amber-400 font-bold">1.</span>
                             <h1 className="text-2xl text-white font-semibold">Basic Info</h1>
                         </div>
-
                         {/* Input Section  */}
                         <div className="mt-4">
-                            <form action="">
+                            <form  action="">
                                 {/* Name */}
                                 <label className="text-lg text-gray-300 block mb-1" htmlFor="name">
                                     Name
@@ -70,7 +69,6 @@ function Home() {
                                     placeholder="Enter your name"
                                     className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                                 />
-
                                 {/* Role */}
                                 <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="role">
                                     Role
@@ -82,7 +80,6 @@ function Home() {
                                     placeholder="(e.g full stack developer)"
                                     className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                                 />
-
                                 {/* About me */}
                                 <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="about">
                                     About me
@@ -92,7 +89,6 @@ function Home() {
                                     placeholder="I'm an experienced full stack developer with skills..."
                                     className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                                 ></textarea>
-
                                 {/* Languages */}
                                 <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="languages">
                                     Languages
@@ -104,7 +100,6 @@ function Home() {
                                     placeholder="(e.g Urdu, English etc)"
                                     className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                                 />
-
                                 {/* Profile Pic */}
                                 <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="profile-pic">
                                     Profile Pic
@@ -118,19 +113,15 @@ function Home() {
                         </div>
                     </div>
                 </div>
-
                 {/* Contact Info */}
-
-
                 <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl shadow-gray-800 w-full max-w-md sm:mr-7 mb-5 mx-auto">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl text-amber-400 font-bold">2.</span>
                         <h1 className="text-2xl text-white font-semibold">Contact Info</h1>
                     </div>
-
                     {/* Input Section  */}
                     <div className="mt-4">
-                        <form action="">
+                        <form  action="">
 
 
                             {/* Email */}
@@ -145,20 +136,17 @@ function Home() {
                                 placeholder="Enter your email"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* Phone */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="name">
                                 Phone
                             </label>
                             <input
-
                                 id="phone"
                                 type="number"
                                 name="phone"
                                 placeholder="+923334455"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* Residence */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="name">
                                 Residence
@@ -170,14 +158,12 @@ function Home() {
                                 Linkedin
                             </label>
                             <input
-
                                 id="linkedin"
                                 type="url"
                                 name="linkedin"
                                 placeholder="Linkedin link"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="name">
                                 Github
                             </label>
@@ -189,24 +175,18 @@ function Home() {
                                 placeholder="Github link"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                         </form>
                     </div>
-
                 </div>
-
-
                 {/* Education */}
-
                 <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl shadow-gray-800 w-full max-w-md sm:ml-7 mb-5 mx-auto">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl text-amber-400 font-bold">3.</span>
                         <h1 className="text-2xl text-white font-semibold">Education</h1>
                     </div>
-
                     {/* Input Section  */}
                     <div className="mt-4">
-                        <form action="">
+                        <form  action="">
                             {/* University Name */}
                             <label className="text-lg text-gray-300 block mb-1" htmlFor="university">
                                 University Name
@@ -218,9 +198,6 @@ function Home() {
                                 placeholder="Enter your university name"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
-
-
                             {/* Batch Number */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="batch">
                                 Batch Number
@@ -232,7 +209,6 @@ function Home() {
                                 placeholder="Enter your batch (e.g., 2020-2024)"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* Field of study */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="batch">
                                 Field of Study
@@ -244,7 +220,6 @@ function Home() {
                                 placeholder="(e.g Bachelors of Computer Science)"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* GPA */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="gpa">
                                 GPA
@@ -256,7 +231,6 @@ function Home() {
                                 placeholder="Enter your GPA (e.g., 3.8/4.0)"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* College Name */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="college">
                                 College Name
@@ -268,7 +242,6 @@ function Home() {
                                 placeholder="Enter your college name"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* College Marks */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="college-marks">
                                 College Marks / Percentage
@@ -280,7 +253,6 @@ function Home() {
                                 placeholder="Enter your marks (e.g., 85% or 900/1100)"
                                 className="w-full z-10 p-2 border border-gray-600 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400"
                             />
-
                             {/* Additional Information */}
                             <label className="text-lg mt-4 text-gray-300 block mb-1" htmlFor="additional-info">
                                 Additional Information (Optional)
@@ -293,15 +265,12 @@ function Home() {
                         </form>
                     </div>
                 </div>
-
-
                 {/* Services */}
                 <div className="bg-gray-800 p-6 rounded-2xl shadow-2xl shadow-gray-800 w-full max-w-md sm:mr-7 mb-5 mx-auto">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl text-amber-400 font-bold">4.</span>
                         <h1 className="text-2xl text-white font-semibold">Services</h1>
                     </div>
-
                     {/* Input Section  */}
                     <div className="mt-4">
                         <form>
@@ -481,6 +450,7 @@ function Home() {
 
                 <div className='flex justify-center items-center mt-6 pb-6'>
                     <button
+                        onClick={routeToPortfolio}
                         className="animate-bounce cursor-pointer focus:animate-none hover:animate-none inline-flex text-lg shadow-lg shadow-gray-800  bg-amber-500 font-bold mt-3 px-4 py-2 rounded-lg tracking-wide text-white"
                         aria-label="Sign up" >
                         <span className="relative flex items-center">
