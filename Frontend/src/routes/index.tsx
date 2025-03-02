@@ -7,6 +7,8 @@ import { RxAvatar } from "react-icons/rx";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useRouter } from '@tanstack/react-router'
+
+
 export const Route = createFileRoute('/')({
   component: RouteComponent,
 })
@@ -14,6 +16,8 @@ export const Route = createFileRoute('/')({
 
 
 function RouteComponent() {
+
+ 
 
   // Typewriter configuration
   const [text] = useTypewriter({
